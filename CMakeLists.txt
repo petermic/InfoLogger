@@ -7,11 +7,18 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.8.0 FATAL_ERROR)
 cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
 
 # define project
-project(
-  InfoLogger
-  DESCRIPTION "O2 Logging library and services"
-  LANGUAGES CXX C
-)
+if(${CMAKE_VERSION} VERSION_GREATER 3.8.1)
+  project(
+    InfoLogger
+    DESCRIPTION "O2 Logging library and services"
+    LANGUAGES CXX C
+  )
+else()
+  project(
+    InfoLogger
+    LANGUAGES CXX C
+  )
+endif()
 
 # global compilation options
 set(CMAKE_CXX_STANDARD 14)
